@@ -11,7 +11,13 @@ import {getDate} from '../utils/getDate';
 configure({adapter: new Adapter()});
 
 describe('Order.js', () => {
-    getDate.mockReturnValue('11 марта, чт, 2021 год');
+    beforeEach(() => {
+        getDate.mockReturnValue('11 марта, чт, 2021 год');
+    })
+
+    afterEach(() => {
+        jest.resetAllMocks();
+    })
 
     it('right render', () => {
         const wrapper = shallow(<Order order={fakeOrders[0]}/>);
@@ -47,7 +53,5 @@ describe('Order.js', () => {
         const wrapper = shallow(<Order/>);
         expect(wrapper).toMatchSnapshot();
     });
-
-    jest.resetModules();
 });
 

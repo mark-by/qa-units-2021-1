@@ -62,22 +62,22 @@ describe('sortByItemCount function', () => {
 
 describe('getSortFunction', () => {
 	it('right date func', () => {
-		expect(getSortFunction('date')).toBe(sortByDate);
+		expect(getSortFunction(sortTypes.DATE)).toBe(sortByDate);
 	});
 
 	it('right count func', () => {
-		expect(getSortFunction('count')).toBe(sortByItemCount);
+		expect(getSortFunction(sortTypes.COUNT)).toBe(sortByItemCount);
 	});
 });
 
 describe('sortByDate', () => {
 	it('left < right', () => {
 		const order1 = {
-			date: 1544356800000,
+			date: 1,
 		};
 
 		const order2 = {
-			date: 1544356900000,
+			date: 2,
 		};
 
 		expect(sortByDate(order1, order2)).toBe(1);
@@ -85,11 +85,11 @@ describe('sortByDate', () => {
 
 	it('left > right', () => {
 		const order1 = {
-			date: 1544356800000,
+			date: 2,
 		};
 
 		const order2 = {
-			date: 1544356500000,
+			date: 1,
 		};
 
 		expect(sortByDate(order1, order2)).toBe(-1);
@@ -97,11 +97,11 @@ describe('sortByDate', () => {
 
 	it('equal', () => {
 		const order1 = {
-			date: 1544356800000,
+			date: 1,
 		};
 
 		const order2 = {
-			date: 1544356800000,
+			date: 1,
 		};
 
 		expect(sortByDate(order1, order2)).toBe(0);
