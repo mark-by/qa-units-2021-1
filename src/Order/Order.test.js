@@ -53,5 +53,12 @@ describe('Order.js', () => {
         const wrapper = shallow(<Order/>);
         expect(wrapper).toMatchSnapshot();
     });
+
+    it('check if getDate is called', () => {
+        const testData = {shop: "shop", date: 1};
+        shallow(<Order order={testData}/>);
+
+        expect(getDate).toHaveBeenCalledWith(testData.date);
+    });
 });
 
