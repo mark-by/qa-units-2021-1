@@ -46,12 +46,12 @@ describe('Order.js', () => {
                 ]
             }
         }/>);
-        expect(wrapper).toMatchSnapshot();
+        expect(wrapper.isEmptyRender()).toBeTruthy()
     });
 
     it('render without order', () => {
         const wrapper = shallow(<Order/>);
-        expect(wrapper).toMatchSnapshot();
+        expect(wrapper.isEmptyRender()).toBeTruthy()
     });
 
     it('check if getDate is called', () => {

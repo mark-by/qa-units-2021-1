@@ -24,10 +24,6 @@ exports[`Order.js render without items 1`] = `
 </div>
 `;
 
-exports[`Order.js render without order 1`] = `""`;
-
-exports[`Order.js render without shop 1`] = `""`;
-
 exports[`Order.js right render 1`] = `
 <div
   className="Order"
